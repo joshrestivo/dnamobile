@@ -1,0 +1,33 @@
+<ion-view view-title="{{events.title}}">
+    <ion-content>
+        <ion-refresher pulling-icon="ion-ios7-arrow-thin-down" on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <ion-item class="card" ng-repeat="event in events | orderBy:'start.dateTime' track by $index" ng-click="openModal(event)" track>
+                <div class="item item-positive item-divider item-text-wrap text-center"  ng-bind="event.summary"></div>
+                    <div class="item item-text-wrap">
+                        <p><b>Date:</b> {{event.end.dateTime | date:'MM/dd/yyyy'}}</p>
+                        <p><b>Time:</b> {{event.start.dateTime | date:'hh:mm'}} - {{event.end.dateTime | date:'hh:mm a'}}</p>
+                        <p style="display:flex;"><b>Location:&nbsp;</b>
+                            <i style="white-space: pre;" ng-bind-html="event.location
+                                .replace(', United States','')
+                                .replace(', Saint Louis', '<br>St. Louis')">
+                            </i>
+                        </p>
+                        <p ng-if="event.description" style="text-align: justify; text-justify: inter-word;">
+                            <b>Details:</b> {{event.description}}
+                        </p>
+                    </div>
+                <div class="item item-divider item-text-wrap text-center">
+                    <button class="calendar-footer ion-calendar" ng-click="createEvent(event)">&nbsp;&nbsp;Add to Calendar</button>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll
+                ng-if="moreDataExists()"
+                on-infinite="loadMore()"
+                distance="1%"
+                immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

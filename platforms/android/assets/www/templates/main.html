@@ -1,0 +1,27 @@
+<ion-view padding="true" scroll="false" hide-nav-bar="true" class="landing-page landing-container">
+	<div class="row row-center">
+		<div class="col col-33">
+			<a href="{{logoUrl}}">
+				<img class="text-right landing-logo" src="{{logoImage}}"/>
+		  	</a>
+			<div class="col col-33 landing-socials-container text-center">
+				<a href="{{facebookUrl}}">
+					<img class="padding-left landing-socials-logo" ng-src="{{facebookLogo}}"/>
+				</a>
+			  	<a href="{{twitterUrl}}">
+					<img class="padding-left landing-socials-logo" ng-src="{{twitterLogo}}"/>
+			  	</a>
+		  	</div>
+	  	</div>
+		<div class="col decoration-vertical">
+			<ion-list>
+				<ion-item class="item item-icon-left" ng-repeat="item in items" ui-sref="{{item.sref}}" menu-close>
+			  		<div class="row">
+						<i style="color: {{item.iconColor}}" class="icon {{item.icon}}"></i>
+						<i class="ion-item">{{item.title}}</i>
+			  		</div>
+				</ion-item>
+		  	</ion-list>
+	  	</div>
+	</div>
+</ion-view>

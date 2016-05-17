@@ -1,0 +1,99 @@
+<button type="submit" ui-sref="requests.list" class="btn btn-info" style="margin:10px;">Back to recent requests</button>
+
+ <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+
+<form name="request-form" role="form" class="form-horizontal">
+  <div id="UserSection">  
+    <h2 class="col-md-12">User Area</h2>
+    <div class="form-group">
+      <label for="inputServiceCode" class="control-label col-sm-2">Request Type</label>
+      <div class="col-sm-6">
+        <input class="form-control" id="inputServiceCode" disabled ng-model="service_name"> 
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputDescription" class="control-label col-sm-2">Description</label>
+      <div class="col-sm-6">
+        <textarea class="form-control" id="inputDescription" placeholder="Description" ng-model="request.description"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputAddress" class="control-label col-sm-2">Address</label>
+      <div class="col-sm-6">
+        <textarea class="form-control" id="inputAddress" placeholder="Address" ng-model="request.address"></textarea>
+      </div>
+    </div>
+    <div class="form-group" ng-show="request.lat && request.long">
+      <label for="inputLat" class="control-label col-sm-2">Latitude</label>
+      <div class="col-sm-3">
+        <input class="form-control" id="inputLat" placeholder="Latitude" ng-model="request.lat">
+      </div>
+    </div>
+    <div class="form-group" ng-show="request.lat && request.long">
+      <label for="inputLong" class="control-label col-sm-2">Longitude</label>
+      <div class="col-sm-3">
+        <input class="form-control" id="inputLong" placeholder="Longitude" ng-model="request.long">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputImage" class="control-label col-sm-2">Upload Image</label>
+      <div class="col-sm-3">
+        <input class="form-control" type="file" ng-file-select="onFileSelect($files)" id="inputImage">
+      </div>
+    </div>
+    <div class="form-group" ng-show="request.media_url">
+      <label for="UploadedImage" class="control-label col-sm-2">Image</label>
+      <img class="col-xs-12 col-md-6" id="UploadedImage" src="{{request.media_url}}">
+    </div>
+    <div class="form-group">
+      <label for="inputSubmittedBy" class="control-label col-sm-2">Submitted By</label>
+      <div class="col-sm-3">
+        <input type="email" class="form-control" id="inputSubmittedBy" placeholder="Email" ng-model="request.email">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-4">
+        <button ng-click="reset()" ng-disabled="isUnchanged(request)"  type="submit" class="btn btn-danger" >Reset</button>
+        <button ng-click="update(request, false)" ng-disabled="request-form.$invalid || isUnchanged(request)" type="submit" class="btn btn-primary" >Save</button>
+      </div>
+    </div>  
+  </div>
+  <div id="AdminSection">
+    <h2 class="col-md-12">Admins Only Past this Point</h2>
+    <div class="form-group">
+      <label for="inputStatus" class="control-label col-sm-2">Status</label>
+      <div class="col-sm-3">
+        <select class="form-control" id="inputStatus" ng-model="request.status" ng-options="status for status in statuses"></select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputRequestedDatetime" class="control-label col-sm-2">Date Requested</label>
+      <div class="col-sm-3">
+        <input class="form-control" id="inputRequestedDatetime" disabled value="{{request.requested_datetime | date:'M/dd/yyyy h:mm a'}}"> 
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputUpdatedDatetime" class="control-label col-sm-2">Last Updated</label>
+      <div class="col-sm-3">
+        <input class="form-control" id="inputUpdatedDatetime" disabled value="{{request.updated_datetime | date:'M/dd/yyyy h:mm a'}}"> 
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputExpectedDatetime" class="control-label col-sm-2">Date Expected</label>
+      <div class="col-sm-3">
+        <p class="input-group">
+          <input type="text" class="form-control" datepicker-popup ng-model="request.expected_datetime" is-open="opened" ng-required="true" close-text="Close" id="inputExpectedDatetime"/>
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-4">
+        <button ng-click="reset(true)" ng-disabled="isUnchanged(request)"  type="submit" class="btn btn-danger" >Reset</button>
+        <button ng-click="update(request, true)" ng-disabled="request-form.$invalid || isUnchanged(request)" type="submit" class="btn btn-primary" >Save</button>
+      </div>
+    </div>
+  </div>
+</form>

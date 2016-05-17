@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="dnaMobile">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <!-- Prod CSP
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://dnac.6ceed.com; style-src 'self' 'unsafe-inline'; script-src 'self' https://dnac.6ceed.com 'unsafe-inline' 'unsafe-eval' ">
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src &apos;self&apos; &apos;unsafe-inline&apos; ; script-src * &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;">
+        <title>STL DNA</title>
+
+        <link href="css/ionic.app.css" rel="stylesheet">
+        <link href="css/ionicons.css" rel="stylesheet">
+        <link href="lib/ionic-filter-bar/dist/ionic.filter.bar.min.css" rel="stylesheet">
+
+        <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+        <script src="lib/ionic-service-core/ionic-core.js"></script>
+        <script src="lib/angular-resource/angular-resource.min.js"></script>
+        <script src="lib/angular-cache/dist/angular-cache.min.js"></script>
+
+        <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.min.js"></script>
+        <script src="lib/moment/moment.js"></script>
+        <script src="lib/x2js/xml2json.min.js"></script>
+        <script src="lib/angular-x2js/dist/x2js.min.js"></script>
+        <script src="lib/angular-favicon/angular-favicon.min.js"></script>
+
+
+        <script src="js/dna.js"></script>
+        <script src="js/dna-controllers.js"></script>
+        <script src="js/dna-filters.js"></script>
+        <script src="js/dna-services.js"></script>
+
+        <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+        <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+<!-- <script src="cordova.js"></script> -->
+        <script src="lib/Calendar.js"></script>
+    
+</head>
+
+    <body ng-controller="MainCtrl" class="platform-android">
+        <ion-nav-view animation="slide-left-right"></ion-nav-view>
+    </body>
+</html>

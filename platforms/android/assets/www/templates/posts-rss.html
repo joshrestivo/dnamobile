@@ -1,0 +1,21 @@
+<ion-view view-title="{{posts.title}}">
+    <ion-content>
+  	<ion-refresher pulling-icon="ion-ios7-arrow-thin-down" on-refresh="doRefresh()"></ion-refresher>
+    <ion-list>
+		<ion-item class="item-icon-right item item-body" ng-repeat="post in posts.item  track by $index" ng-click="openModal(post)" track>
+			<img ng-if="post.imageThumb" ng-src="{{post.imageThumb}}" class="alignleft item-image" />
+			<h2 style="margin-top: 0;" ng-bind-html="post.title"></h2>
+			<p style="padding-right: 5%; margin-bottom: 0; text-align: justify;" ng-bind-html="post.description"></p>
+			<i class="icon ion-chevron-right icon-accessory"></i>
+		</ion-item>
+	</ion-list>
+
+    <ion-infinite-scroll
+        ng-if="moreDataExists()"
+        on-infinite="loadMore()"
+        distance="1%"
+        immediate-check="false">
+    </ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

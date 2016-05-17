@@ -1,0 +1,31 @@
+<h2>Report an issue!</h2>
+
+<form name="create-form"  class="form-horizontal">
+  <div class="form-group">
+    <label for="inputServiceCode" class="control-label col-sm-2">Request Type</label>
+    <div class="col-sm-5">
+      <select class="form-control" ng-model="request.service_code" id="inputServiceCode">
+        <option ng-repeat="service in services" value="{{service.service_code}}">
+          {{service.service_name}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress" class="control-label col-sm-2">Address</label>
+    <div class="col-sm-5">
+      <textarea class="form-control" id="inputAddress" placeholder="Address" ng-model="request.address"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputDescription" class="control-label col-sm-2">Description</label>
+    <div class="col-sm-5">
+      <textarea class="form-control" id="inputDescription" placeholder="Brief Description" ng-model="request.description"></textarea>
+    </div>
+  </div>
+ 	<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-2">
+      <button ng-click="create(request)" type="submit" class="btn btn-primary" >Create</button>
+    </div>
+  </div>
+</form>

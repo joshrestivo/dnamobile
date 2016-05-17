@@ -1,0 +1,21 @@
+<ion-modal-view>
+
+  <ion-header-bar align-title="left" class="bar-balanced">
+    <button class="button back-button buttons button-clear header-item" ng-click="closeModal()">
+        <i class="icon ion-android-arrow-back"></i>
+        <span class="back-text"></span>
+    </button>
+    <div class="title title-left header-item" >{{posts.title}}</div>
+  </ion-header-bar>
+
+  <ion-content has-header="true" padding="true">
+    <div class="item item-body">
+	    <img style="max-height: 40%;" ng-if="post.imageLarge" ng-src="{{post.imageLarge}}" class="row image-header-wide" ng-click="openModal2(post.imageLarge)"/>
+	    <button class="button button-full button-positive" ng-bind-html="post.title"></button>
+	    <p ng-if="post.descriptionFull" ng-bind-html="post.descriptionFull" style="margin: 1%"></p>
+	</div>
+	<div class="item item-body" style="text-align: center;">
+	    <a href="{{post.link}}" class="ion-document-text data-source">&nbsp;&nbsp;Data Source</a>
+	</div>
+  </ion-content>
+</ion-modal-view>
