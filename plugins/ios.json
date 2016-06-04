@@ -7,15 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
-        },
-        "cordova-plugin-device-motion": {
-            "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
-        },
-        "cordova-plugin-device-orientation": {
-            "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
-        },
         "cordova-plugin-dialogs": {
             "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
         },
@@ -26,9 +17,6 @@
             "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
         },
         "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
-        },
-        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
         },
         "cordova-plugin-whitelist": {
@@ -46,7 +34,7 @@
         "ionic-plugin-deploy": {
             "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
         },
-        "cordova-plugin-console": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.saintlouisdna.dnamobile"
         }
     },

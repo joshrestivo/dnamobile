@@ -20,7 +20,8 @@
   "homepage": "https://github.com/phonegap/phonegap-app-hello-world",
   "cordovaPlugins": [
     "cordova-plugin-calendar",
-    "ionic-plugin-deploy"
+    "ionic-plugin-deploy",
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "android",
