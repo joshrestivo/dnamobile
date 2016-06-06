@@ -147,21 +147,25 @@ angular.module('dnaMobile.controllers',
 
 })
 	
-.controller('dnaEventsCtrl', function($scope, $http, $ionicFilterBar, $cordovaCalendar, $cordovaToast) {
+.controller('dnaEventsCtrl', function($scope, $http, $ionicFilterBar, $cordovaCalendar, $cordovaToast, $timeout) {
 
 	var apiKey = ' AIzaSyDPdWQ9tUD12sIcux5imk376qGYf3weCNY';
 	var calendarId = 'calendar@saintlouisdna.org';
 	var pageTitle = 'DNA - Upcoming Events';
 	var today = moment().format('YYYY-MM-DDTHH:mm:ssZ');
 
-	$http({
-		method: 'GET',
-		url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?key=' + apiKey
-			+ '&timeMin=' + today)
-	}).then(function(response) {
-		$scope.events = response.data.items;
-		$scope.events.title = pageTitle;
-    });
+    $scope.loadEvents = function() {
+        $http({
+            method: 'GET',
+            url: encodeURI('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events?key=' + apiKey
+                + '&timeMin=' + today)
+        }).then(function (response) {
+            $scope.events = response.data.items;
+            $scope.events.title = pageTitle;
+        })
+    };
+
+    $scope.loadEvents();
 
     $scope.createEvent = function(event) {
         $cordovaCalendar.createEvent({
@@ -177,8 +181,23 @@ angular.module('dnaMobile.controllers',
               });
         }, function (err) {
             console.error("Uhh Ohh, Charlie Brown: " + err);
-        });
-    }
+        })
+    };
+
+    // Pull to refresh
+    $scope.doRefresh = function() {
+        $timeout(function () {
+            $scope.loadEvents();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+        }, 1000);
+
+        $cordovaToast.showLongBottom('Your data is now oven fresh.')
+            .then(function(success) {
+            }, function(error) {
+            })
+    };
+
 })
 
 .controller('dnaLinksCtrl', function($scope, $http, $rootScope, $ionicFilterBar, $log, $timeout, dataLoader) {

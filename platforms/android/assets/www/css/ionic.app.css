@@ -9719,8 +9719,17 @@ a.button {
   float: left;
   margin-right: 15px; }
 
+.back-button {
+  border-top: 0; }
+
 .bar.bar-balanced {
   background-color: #c41e3b; }
+
+.bar-balanced .button, .button.button-clear {
+  border-top: 0; }
+
+.bar-balanced, .button.button-icon {
+  border-top: 0; }
 
 .button {
   border-color: transparent;
@@ -9786,7 +9795,13 @@ a.button {
   flex-direction: column;
   border-left: 1px solid darkslategray; }
 
-div.title.title-center.header-item, div.title.title-left.header-item.ng-binding {
+div.title.title-center.header-item {
+  text-align: center;
+  font-size: 100%;
+  font-weight: bold; }
+
+div.title.title-left.header-item {
+  text-align: left;
   font-size: 100%;
   font-weight: bold; }
 

@@ -35,9 +35,21 @@ $landing-logo:	  '../img/DNA-logo.png';
 	margin-right: 15px;
 }
 
+.back-button {
+  border-top:0;
+}
+
 .bar.bar-balanced
 {
   background-color: $bg-color-1;
+}
+
+.bar-balanced .button, .button.button-clear {
+  border-top: 0;
+}
+
+.bar-balanced, .button.button-icon {
+  border-top: 0;
 }
 
 .button
@@ -124,7 +136,14 @@ $landing-logo:	  '../img/DNA-logo.png';
   border-left: 1px solid darkslategray;
 }
 
-div.title.title-center.header-item, div.title.title-left.header-item.ng-binding {
+div.title.title-center.header-item {
+  text-align: center;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+div.title.title-left.header-item {
+  text-align: left;
   font-size: 100%;
   font-weight: bold;
 }

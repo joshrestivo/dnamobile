@@ -1,6 +1,6 @@
 <ion-view view-title="{{events.title}}">
     <ion-content>
-        <ion-refresher pulling-icon="ion-ios7-arrow-thin-down" on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-ios7-arrow-thin-down"></ion-refresher>
         <ion-list>
             <ion-item class="card" ng-repeat="event in events | orderBy:'start.dateTime' track by $index" ng-click="openModal(event)" track>
                 <div class="item item-positive item-divider item-text-wrap text-center"  ng-bind="event.summary"></div>
