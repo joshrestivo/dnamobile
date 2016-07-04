@@ -68,8 +68,7 @@ angular.module('dnaMobile.controllers',
 
 .controller('BuildingListCtrl', function( $scope, $http, dataLoader, $ionicModal, $timeout, $ionicSlideBoxDelegate, $rootScope, $log) {
 
-	var listApi = $rootScope.url + '/list',
-        filterBarInstance;
+	var listApi = $rootScope.url + '/list';
 
 	$scope.moreItems = false;
 
@@ -147,7 +146,7 @@ angular.module('dnaMobile.controllers',
 
 })
 	
-.controller('dnaEventsCtrl', function($scope, $http, $ionicFilterBar, $cordovaCalendar, $cordovaToast, $timeout) {
+.controller('dnaEventsCtrl', function($scope, $http, $cordovaCalendar, $cordovaToast, $timeout) {
 
 	var apiKey = ' AIzaSyDPdWQ9tUD12sIcux5imk376qGYf3weCNY';
 	var calendarId = 'calendar@saintlouisdna.org';
@@ -200,9 +199,8 @@ angular.module('dnaMobile.controllers',
 
 })
 
-.controller('dnaLinksCtrl', function($scope, $http, $rootScope, $ionicFilterBar, $log, $timeout, dataLoader) {
-    var linksApi = $rootScope.url + '/list',
-        filterBarInstance;
+.controller('dnaLinksCtrl', function($scope, $http, $rootScope, $log, $timeout, dataLoader) {
+    var linksApi = $rootScope.url + '/list';
 
     $scope.moreItems = false;
 

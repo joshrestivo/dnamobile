@@ -1,6 +1,7 @@
 <ion-view view-title="DNA Buildings">
     <ion-content has-header="true" padding="true">
         <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-ios7-arrow-thin-down"></ion-refresher>
+        <ion-searchbar [(ngModel)]="searchQuery" (input)="posts"></ion-searchbar>
         <ion-list>
             <ion-item class="item-icon-right item item-avatar" ng-repeat="post in posts track by $index" ng-click="openModal(post)" track>
                 <img ng-if="post.image.url" ng-src="{{post.image.url}}" class="alignleft" />

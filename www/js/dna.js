@@ -1,7 +1,7 @@
 angular
 	.module(
 		'dnaMobile',
-		[ 'ionic', 'ionic.service.core', 'jett.ionic.filter.bar',
+		[ 'ionic', 'ionic.service.core',
 			'dnaMobile.controllers', 'ngCordova', 'ngResource',
 			'angular-cache', 'favicon' ])
 
