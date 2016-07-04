@@ -41,3 +41,4 @@ captures/
 .idea/
 .npmignore
 .io-config.json
+.bithoundrc
